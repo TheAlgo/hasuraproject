@@ -45,9 +45,11 @@ items:
     - port: 8080
       protocol: TCP
       targetPort: 8080
+      name: gateway
     - port: 5001
       protocol: TCP
       targetPort: 5001
+      name: api
     selector:
       app: ipfs
     type: ClusterIP
