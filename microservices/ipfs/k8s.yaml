@@ -1,0 +1,57 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: ipfs
+      hasuraService: custom
+    name: ipfs
+    namespace: '{{ cluster.metadata.namespaces.user }}'
+  spec:
+    replicas: 1
+    strategy: {}
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: ipfs
+      spec:
+        containers:
+        - image: ipfs/go-ipfs:latest
+          imagePullPolicy: IfNotPresent
+          name: ipfs
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          - containerPort: 5001
+            protocol: TCP
+          resources: {}
+        securityContext: {}
+        terminationGracePeriodSeconds: 0
+  status: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: ipfs
+      hasuraService: custom
+    name: ipfs
+    namespace: '{{ cluster.metadata.namespaces.user }}'
+  spec:
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - port: 5001
+      protocol: TCP
+      targetPort: 5001
+    selector:
+      app: ipfs
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata: {}
