@@ -40,7 +40,7 @@ var selectedFile = undefined;
 function upload(){
     const reader = new FileReader();
     reader.onloadend = function() {
-      const ipfs = window.IpfsApi('https://api.bobbysoxer98.hasura-app.io', 443) // Connect to IPFS
+      const ipfs = window.IpfsApi('api.bobbysoxer98.hasura-app.io', 80) // Connect to IPFS
       const buf = buffer.Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if(err) {
