@@ -2,10 +2,10 @@
 # Hasura allots a cluster-name.hasura-app.io for every cluster
 
 {{ cluster.name }}.hasura-app.io:
-  ssl:
-    type: LetsEncrypt
-    conf:
-      account: {{ cluster.name }}
+  ssl: null
+#    type: LetsEncrypt
+#    conf:
+#      account: {{ cluster.name }}
 
 # Point your own domain to the IP of the cluster and add the domain here
 # Example configuration for domain with free SSL certs from LetsEncypt
