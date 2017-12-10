@@ -33,13 +33,14 @@ $(function(){
 //     }
 // };
 
-var ipfsHost = "http://teamjugaad.tk:8080";
+// var ipfsHost = "http://teamjugaad.tk:8080";
+var ipfsHost = "https://ipfs.bobbysoxer98.hasura-app.io";
 var selectedFile = undefined;
 
 function upload(){
     const reader = new FileReader();
     reader.onloadend = function() {
-      const ipfs = window.IpfsApi('teamjugaad.tk', 5001) // Connect to IPFS
+      const ipfs = window.IpfsApi('api.bobbysoxer98.hasura-app.io', 5001) // Connect to IPFS
       const buf = buffer.Buffer(reader.result) // Convert data into buffer
       ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
         if(err) {
