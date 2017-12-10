@@ -167,7 +167,7 @@ www:
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
-www:
+api:
   /:
     corsPolicy: allow_all
     upstreamService:
