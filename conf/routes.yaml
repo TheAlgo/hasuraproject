@@ -160,7 +160,7 @@ notify:
     upstreamServicePort: 80
     corsPolicy: allow_all
 www:
-  /ui:
+  /:
     corsPolicy: allow_all
     upstreamService:
       name: www
